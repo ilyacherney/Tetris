@@ -1,6 +1,7 @@
 public class Block {
-    private int x = 5;
+    private int x = 2 ;
     private int y = 0;
+    private String sybmol = "x";
 
     public int getX() {
         return x;
@@ -18,10 +19,19 @@ public class Block {
     public void moveLeft() {
         x--;
     }
+
     public void moveRight() {
         x++;
     }
+
     public void moveDown() {
-        y++;
+        if (y < 9) {
+            y++;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return sybmol;
     }
 }

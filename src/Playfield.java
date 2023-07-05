@@ -1,11 +1,17 @@
+import java.util.ArrayList;
+
 public class Playfield {
-    public String[][] createPlayfield() {
-        String[][] cells = new String[20][10];
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells[i].length; j++) {
-                cells[i][j] = "-";
+    private final int HEIGHT = 10;
+    private final int WIDTH = 10;
+    public Cell[][] cells = new Cell[HEIGHT][WIDTH];
+    public ArrayList<Block> blocks = new ArrayList<>();
+    public Block activeBlock;
+    public Playfield() {
+        for (int y = 0; y < cells.length; y++) {
+            for (int x = 0; x < cells[y].length; x++) {
+                Cell cell = new Cell(y, x);
+                cells[y][x] = cell;
             }
         }
-        return cells;
     }
 }

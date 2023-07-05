@@ -1,18 +1,14 @@
-import java.awt.*;
-import java.awt.event.InputEvent;
-
 public class Printer {
-    public static void print(Block block) throws AWTException {
-        String[][] playField = new Playfield().createPlayfield();
-        for (int y = 0; y < playField.length; y++) {
-            for (int x = 0; x < playField[y].length; x++) {
-                if (block.getX() == x && block.getY() == y) {
-                    playField[y][x] = "x";
+    public static void print(Playfield playfield) {
+//        Playfield playfield = new Playfield();
+        for (int y = 0; y < playfield.cells.length; y++) {
+            for (int x = 0; x < playfield.cells[y].length; x++) {
+                if (playfield.activeBlock.getX() == x && playfield.activeBlock.getY() == y) {
+                    playfield.cells[y][x].setBlock(playfield.activeBlock);
                 }
-                System.out.printf(playField[y][x]);
+                    System.out.printf(playfield.cells[y][x].toString());
             }
             System.out.println();
         }
-        Cleaner.clean();
     }
 }
