@@ -2,6 +2,7 @@ public class Block {
     private int x = 2 ;
     private int y = 0;
     private String sybmol = "x";
+    public boolean isActive = true;
 
     public int getX() {
         return x;
@@ -25,9 +26,10 @@ public class Block {
     }
 
     public void moveDown() {
-        if (y < 9) {
+        if (isActive && y < 9) {
             y++;
-        }
+        } else
+            isActive = false;
     }
 
     @Override
